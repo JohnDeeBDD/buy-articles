@@ -12,9 +12,11 @@ namespace BuyArticles;
 
 //die ('FastRegister.php');
 require_once("src/BuyArticles/autoloader.php");
-$Plugin = new Plugin;
 
+$Plugin = new Plugin;
 $Plugin->addAdminPage();
+$Plugin->enableApiActions();
+
 //$Plugin->listenForSubmission();
 
 //ability to buy SEO articles
@@ -34,4 +36,6 @@ $Plugin->addAdminPage();
  * And the user's password should be sent from the mothership via and API
 */
 
-
+//The "mothership" is the code that goes on the production master server
+$Mothership = new Mothership;
+$Mothership->addAdminPage();

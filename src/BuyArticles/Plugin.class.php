@@ -4,6 +4,31 @@ namespace BuyArticles;
 
 class Plugin{
     
+    public function enableApiActions(){
+        add_action('rest_api_init', array($this, 'doRegisterRoute'));
+    }
+    
+    public function doRegisterRoute(){
+        $apiRouteName = 'buy-articles/';
+        register_rest_route(
+            $apiRouteName,
+            "register-remote-author",
+            array(
+                'methods' => 'POST',
+                'callback' =>
+                array(
+                    new \BuyArticles\RegisterRemoteAuthorAction,
+                    'doRegisterRemoteAuthor',
+                ),
+                'permission_callback' =>
+                    array(
+                        new \BuyArticles\RegisterRemoteAuthorAction,
+                        'authCheck',
+                    )
+                )
+            );
+    }
+    
     public function requestPasswordFromMothership(){
         
         if(isset($_GET['buy-articles-initiate-article-submission'])){
