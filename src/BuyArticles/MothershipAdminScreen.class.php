@@ -11,7 +11,7 @@ class MothershipAdminScreen{
         $output = <<<output
 <div class="wrap">
 <h1>$ActivateClients</h1>
-<form method="post" action = "http://localhost/wp-json/buy-articles/register-remote-author" >
+<form method="post" action = "https://generalchicken.net/wp-json/buy-articles/register-remote-author" >
 Website:<br />
 <input type = "text" name = "website" id = "website" /><br />
 User Name:<br />
@@ -24,7 +24,8 @@ Password:<br />
 <input type = "text" name = "user-password" /><br />
 Site Password:<br />
 <input type = "text" name = "buy-articles-password" /><br />
-<input type = "submit" /><br />		
+<input type = "submit" /><br />
+<input type = "hidden" name = "buy-articles-incoming-order" value = "true" />		
 </form>
 
 <script>

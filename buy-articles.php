@@ -39,3 +39,4 @@ $Plugin->enableApiActions();
 //The "mothership" is the code that goes on the production master server
 $Mothership = new Mothership;
 $Mothership->addAdminPage();
+$Mothership->listenForOrderSubmission();

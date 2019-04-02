@@ -45,7 +45,7 @@ class Plugin{
             if($networkPassword == $_GET['password']){
                 $RemoteAction = new RemoteAction;
             }else{
-                die("SOMETHING IS VERY WRONG");
+                die("SOMETHING IS VERY WRONG.");
             }
         }
     }

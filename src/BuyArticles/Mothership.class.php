@@ -22,4 +22,19 @@ class Mothership{
             }
         );
     }
+    
+    public function listenForOrderSubmission(){
+        if (isset($_POST['buy-articles-incoming-order'])){
+            add_action('init', array($this, 'doProcessorderSubmission'));
+        }
+    }
+    
+    public function doProcessOrderSubmission(){
+        $content = var_export($_POST, TRUE);
+        $id = wp_insert_post( array (
+            'post_title' => "INCOMING ORDER SUBMISSION",
+            'post_content' => $content,
+            'post_status' => 'draft',
+        ));
+    }
 }

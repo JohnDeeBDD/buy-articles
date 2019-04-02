@@ -2,10 +2,11 @@
 
 namespace BuyArticles;
 
-private $mothershipUrl = "https://generalchicken.net/wp-json/true-http-networks/new-password-request";
 
 class SettingsTab extends AbstractTab{
 
+    private $mothershipUrl = "https://generalchicken.net/wp-json/true-http-networks/new-password-request";
+    
     public function returnHTML(){
         //Checks that the user isn't trying to reset the password
         if (isset($_GET['buy-passwords-reset-password'])){
@@ -66,6 +67,11 @@ OUTPUT;
         $result = $this->cUrlTheMothership($url);
         $siteUrl = urlencode(site_url());
         $networkPassword = (json_decode($result, true));
+        
+        //What is this password? It's a string that the client site can confirm comes FROM
+        //the host server based on DNS. It then enables the holder of the password to 
+        //create a user between the time the client requests a password, and the time the 
+        //password is used [a true nonce]
         update_option("buyArticlesNetworkPassword", $networkPassword);
     }
     

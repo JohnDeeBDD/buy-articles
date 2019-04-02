@@ -8,8 +8,10 @@ class AdminSubmenu{
         $tab = AdminSubmenu::whichTabIsActive();
         $seoClassCSS = ""; $researchClassCSS = ""; $sellArticlesClassCSS = ""; $settingsClassCSS = ""; $tabHTML = "";
         switch ($tab) {
-            case "SEO":
+            case "seo":
                 $seoClassCSS = "nav-tab-active";
+                $SeoArticlesTab = new SeoArticlesTab;
+                $tabHTML = $SeoArticlesTab->returnHTML();
                 break;
             case "research":
                 $researchClassCSS = "nav-tab-active";
@@ -54,8 +56,8 @@ OUTPUT;
         if (!(isset($_GET['tab']))){
             return "SEO";
         }
-        if ($_GET['tab'] == "SEO"){
-            return "SEO";
+        if ($_GET['tab'] == "seo"){
+            return "seo";
         }
         if ($_GET['tab'] == "research"){
             return "research";
