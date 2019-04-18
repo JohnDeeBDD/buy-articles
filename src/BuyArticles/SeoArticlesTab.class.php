@@ -28,45 +28,82 @@ class SeoArticlesTab extends AbstractTab{
     $CSS
 </style>
 <form method = "post" action = "$mothershipUrl">
-<div class = "form-input-item">
-    <div class = "form-input-item-title">
-        $SeoArticleTitle
-    </div><!-- end: .form-input-item-title -->
-    <input type = "text" name = "seo-article-title" />
-</div>
-<div class = "form-input-item">
-    <div class = "form-input-item-title">
-        $Size
-    </div><!-- end: .form-input-item-title -->
-<input type = "text" name = "seo-article-size" />
-</div>
-<div class = "form-input-item">
-    <div class = "form-input-item-title">
-        $Keywords
-    </div><!-- end: .form-input-item-title -->
-<input type = "text" name = "seo-article-keywords" />
-</div>
-<div class = "form-input-item">
-    <div class = "form-input-item-title">
-        $Tags
-    </div><!-- end: .form-input-item-title -->
-<input type = "text" name = "seo-article-tags" />
-<!-- https://github.com/xoxco/jQuery-Tags-Input -->
-</div>
-<div class = "form-input-item">
-    <div class = "form-input-item-title">
-        $Category
-    </div><!-- end: .form-input-item-title -->
-<input type = "text" name = "seo-article-category" />
-</div>
-<div class = "form-input-item">
-    <div class = "form-input-item-title">
-        $Links
-    </div><!-- end: .form-input-item-title -->
-<input type = "text" name = "seo-article-links" />
-</div>
+
+<table class="form-table">
+<tr>
+<th scope="row"><label for="blogname">$SeoArticleTitle</label></th>
+<td><input type = "text" name = "seo-article-title" class="regular-text" />
+<p class="description" id="seo-title">The title of the SEO post.</p></td>
+</tr>
+
+<tr id = "size-row">
+    <th scope="row">Size</th>
+    <td><div class="size-options">
+    <p class="description">
+        The size of an SEO article is the most important factor after basic quality.
+    </p>
+	<p>
+       &nbsp;&nbsp;<input type="radio" name="seo-article-size" id="seo-article-size-300" value="300" checked />
+	       300 words, $30
+	</p>
+	<p>
+       &nbsp;&nbsp;<input type="radio" name="seo-article-size" id="seo-article-size-500" value="500"  />
+	       500 words, $45
+	</p>
+	<p>
+       &nbsp;&nbsp;<input type="radio" name="seo-article-size" id="seo-article-size-1000" value="1000" />
+	       1000, $65
+	</p>
+
+		</div>
+		</td>
+</tr><!-- end: #size-row -->
+
+
+<tr id = "instructions-row">
+    <th scope="row">Special Instructions</th>
+    <td><div class="instructions-options">
+<textarea id="instructions" name="story" class="regular-text" placeholder = "Optional" rows = "5">
+</textarea>
+
+
+
+<tr id = "tags-row">
+    <th scope="row">
+        Tags
+    </th>
+    <td>
+        <div class="tags-options">  
+            <input class="regular-text" type="text" name="seo-tags" id="seo-tags-input" placeholder = "Comma seperated list" />
+            <p class="description">
+                Optional. Tags are used to organize your SEO post.
+            </p>           
+        </div>
+	</td>
+</tr><!-- end: tags-row -->
+
+<tr id = "category-row">
+    <th scope="row">
+        Category
+    </th>
+    <td>
+        <div class="category-options">  
+            <input class="regular-text" type="text" name="seo-category" id="seo-category-input" />
+            <p class="description">
+                Optional. What category should this SEO post go in.
+            </p>           
+        </div>
+	</td>
+</tr><!-- end: category-row -->
 <input type = "hidden" name = "buy-articles-incoming-order" value = "TRUE" />
+<tr>
+    <th scope="row">
+
+    </th>
+    <td>
 <input type = "submit" />
+	</td>
+</tr>
 </form>
 output;
         
